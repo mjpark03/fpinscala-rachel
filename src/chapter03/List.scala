@@ -62,4 +62,12 @@ object List {
     }
   }
 
+  /*
+    3.5
+  */
+  def dropWhile[A](list: List[A], f: A => Boolean): List[A] = list match {
+    case Cons(head, tail) if f(head) => dropWhile(tail, f)
+    case _ => list
+  }
+
 }
