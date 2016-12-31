@@ -48,4 +48,18 @@ object List {
     case Nil => Nil
     case Cons(_, tail) => Cons(head, tail)
   }
+  
+  /*
+    3.4
+  */
+  def drop[A](list: List[A], n: Int): List[A] = {
+    if(n <= 0) list
+    else {
+      list match {
+        case Nil => Nil
+        case Cons(_, tail) => drop(tail, n-1)
+      }
+    }
+  }
+
 }
