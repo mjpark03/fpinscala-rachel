@@ -41,4 +41,11 @@ object List {
     case Cons(_, tail) => tail
   }
 
+  /*
+    3.3
+  */
+  def setHead[A](list: List[A], head: A): List[A] = list match {
+    case Nil => Nil
+    case Cons(_, tail) => Cons(head, tail)
+  }
 }
