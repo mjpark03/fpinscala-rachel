@@ -70,4 +70,17 @@ object List {
     case _ => list
   }
 
+  def foldRight[A,B](as: List[A], z: B)(f: (A, B) => B): B = // Utility functions
+    as match {
+      case Nil => z
+      case Cons(x, xs) => f(x, foldRight(xs, z)(f))
+    }
+
+  /*
+    3.9
+  */
+  def length[A](list: List[A]): Int = {
+    foldRight(list, 0)((_, acc) => acc + 1)
+  }
+i
 }
