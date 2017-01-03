@@ -82,5 +82,12 @@ object List {
   def length[A](list: List[A]): Int = {
     foldRight(list, 0)((_, acc) => acc + 1)
   }
-i
+
+  /*
+    3.16
+  */
+  def add1(list: List[Int]): List[Int] = {
+    foldRight(list, Nil: List[Int])((head, tail) => Cons(head+1, tail))
+  }
+
 }
