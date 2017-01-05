@@ -93,8 +93,8 @@ object List {
   /*
     3.17
   */
-  def doubleToString(l: List[Double]): List[String] = {
-    foldRight(l, Nil:List[String])((h,t) => Cons(h.toString,t))
+  def doubleToString(list: List[Double]): List[String] = {
+    foldRight(list, Nil: List[String])((head, tail) => Cons(head.toString, tail))
   }
 
 }
