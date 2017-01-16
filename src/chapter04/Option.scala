@@ -36,4 +36,8 @@ object Option {
     if(seq.isEmpty) None
     else Some(seq.sum / seq.length)
   }
+
+  def variance(seq: Seq[Double]): Option[Double] = {
+    mean(seq).flatMap(m => mean(seq.map(x => math.pow(x - m, 2))))
+  }
 }
