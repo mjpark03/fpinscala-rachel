@@ -40,4 +40,9 @@ object Option {
   def variance(seq: Seq[Double]): Option[Double] = {
     mean(seq).flatMap(m => mean(seq.map(x => math.pow(x - m, 2))))
   }
+
+  def map2[A,B,C](a: Option[A], b: Option[B])(f: (A, B) => C): Option[C] = {
+    a flatMap (aa => b map (bb => f(aa, bb)))
+  }
+
 }
