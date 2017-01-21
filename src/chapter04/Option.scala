@@ -52,4 +52,8 @@ object Option {
     }
   }
 
+  def sequence_1[A](a: List[Option[A]]): Option[List[A]] = {
+    a.foldRight[Option[List[A]]](Some(Nil))((x,y) => map2(x,y)(_ :: _))
+  }
+
 }
