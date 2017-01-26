@@ -1,6 +1,13 @@
 
 
-sealed trait Stream[+A]
+sealed trait Stream[+A] {
+  
+  def toListRecursive: List[A] = this match {
+    case Cons(h,t) => h() :: t().toListRecursive
+    case _ => List()
+  }
+
+}
 
 case object Empty extends Stream[Nothing]
 case class Cons[+A](h: () => A, t: () => Stream[A]) extends Stream[A]
